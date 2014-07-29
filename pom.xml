@@ -29,7 +29,7 @@
     <version>4</version>
   </parent>
   <groupId>org.exoplatform.addons.crash</groupId>
-  <artifactId>exo-crash-addon</artifactId>
+  <artifactId>crash-addon</artifactId>
   <version>4.1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>CRaSH Add-on for eXo platform</name>
@@ -52,25 +52,57 @@
       <version>${org.crsh.version}</version>
       <type>war</type>
       <!-- Don't expose transitive deps if someone wants the zip as dep -->
-      <scope>provided</scope>
+      <scope>runtime</scope>
     </dependency>
   </dependencies>
   <build>
     <plugins>
-      <!-- ZIP extension for tomcat -->
+      <!-- WAR Extension for JBoss -->
+      <!--Specific CRaSH extension for JBoss EAR. It removes bouncycastle (using the one from platform EAR which is configured against VFS issue) -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>customize-crash-war</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>war</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <overlays>
+            <overlay>
+              <groupId>org.crsh</groupId>
+              <artifactId>crsh.jcr.exo</artifactId>
+              <includes>
+                <include>**/*</include>
+              </includes>
+              <excludes>
+                <!-- Remove bouncycastle lib to use the one from PLF EAR -->
+                <exclude>WEB-INF/lib/bcprov*.jar</exclude>
+              </excludes>
+            </overlay>
+          </overlays>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-assembly-plugin</artifactId>
         <executions>
           <execution>
-            <id>package-extension</id>
+            <id>package-addon</id>
             <phase>package</phase>
             <goals>
               <goal>single</goal>
             </goals>
             <configuration>
               <descriptors>
+                <!-- ZIP add-on for tomcat -->
                 <descriptor>src/main/assemblies/crash-addon-tomcat-archive.xml</descriptor>
+                <!-- ZIP add-on for jboss -->
+                <descriptor>src/main/assemblies/crash-addon-jboss-archive.xml</descriptor>
               </descriptors>
             </configuration>
           </execution>
