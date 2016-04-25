@@ -26,11 +26,11 @@
   <parent>
     <artifactId>addons-parent-pom</artifactId>
     <groupId>org.exoplatform.addons</groupId>
-    <version>4</version>
+    <version>6</version>
   </parent>
   <groupId>org.exoplatform.addons.crash</groupId>
   <artifactId>crash-addon</artifactId>
-  <version>4.1.x-SNAPSHOT</version>
+  <version>4.2.x-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>CRaSH Add-on for eXo Platform</name>
   <scm>
