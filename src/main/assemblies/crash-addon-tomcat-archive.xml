@@ -42,7 +42,7 @@
     <file>
       <outputDirectory>/</outputDirectory>
       <destName>README</destName>
-      <source>${project.basedir}/README.md</source>
+      <source>${project.basedir}/README.adoc</source>
       <lineEnding>windows</lineEnding>
     </file>
   </files>
