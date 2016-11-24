@@ -30,7 +30,7 @@
   </parent>
   <groupId>org.exoplatform.addons.crash</groupId>
   <artifactId>crash-addon</artifactId>
-  <version>4.2.x-SNAPSHOT</version>
+  <version>4.4.x-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>CRaSH Add-on for eXo Platform</name>
   <scm>
@@ -48,7 +48,7 @@
     <!-- Dependencies Versions                    -->
     <!-- **************************************** -->
     <!-- CRaSH -->
-    <org.crsh.version>1.2.6</org.crsh.version>
+    <org.crsh.version>1.2.11</org.crsh.version>
   </properties>
   <dependencies>
     <!-- CRaSH webapp for GateIn -->
