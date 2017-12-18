@@ -30,14 +30,14 @@
   </parent>
   <groupId>org.exoplatform.addons.crash</groupId>
   <artifactId>crash-addon</artifactId>
-  <version>4.4.x-SNAPSHOT</version>
+  <version>4.4.4-RC01</version>
   <packaging>pom</packaging>
   <name>CRaSH Add-on for eXo Platform</name>
   <scm>
     <connection>scm:git:git://github.com/exoplatform/crash-addon.git</connection>
     <developerConnection>scm:git:git@github.com:exoplatform/crash-addon.git</developerConnection>
     <url>https://github.com/exoplatform/crash-addon</url>
-    <tag>HEAD</tag>
+    <tag>4.4.4-RC01</tag>
   </scm>
   <properties>
     <!-- **************************************** -->
